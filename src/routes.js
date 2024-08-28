@@ -1,13 +1,11 @@
 const express = require('express')
 const route = express.Router()
 const cors = require('cors')
+const cursoController = require('./controllers/CursoController')
 
 route.options("*", cors())
 
-//rota teste
-
-route.get('/test', (req,res)=>{
-res.send("Hello world! Seja Bem-Vindo(a) a minha API")
-})
+//Endpoint - Curso
+route.get('/curso', cursoController.findAllTurmas) //READY
 
 module.exports = route
