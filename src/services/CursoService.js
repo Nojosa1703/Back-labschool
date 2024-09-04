@@ -1,6 +1,5 @@
 //IMPORTAÇÃO DO DATABASE
 
-const { updateCurso, deleteCurso } = require('../controllers/CursoController')
 const database = require('../database')
 
 module.exports = {
