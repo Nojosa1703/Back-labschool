@@ -1,3 +1,4 @@
+const { updateAluno } = require('../controllers/alunoController')
 const database = require('../database')
 
 module.exports = {
@@ -44,5 +45,19 @@ return new Promise((resolve,reject) =>{
         resolve(result)
     })
 })
+    },
+    updateAluno: (id, foto, nome, telefone, email, data_nascimento) => {
+        return new Promise((resolve, reject) => {
+            database.query(
+                'UPDATE aluno SET foto = ?, nome = ?, telefone = ?, data_nascimento = ?, email = ? WHERE id = ?',
+                [foto, nome, telefone, data_nascimento, email, id],
+                (err,result) => {
+                    if(err){
+                        reject(err)
+                        return
+                    }
+                }
+            )
+        })
     }
 }
